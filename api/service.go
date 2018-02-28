@@ -32,7 +32,7 @@ func NewBiologyQvalueService(log *logrus.Logger, db *sql.DB) BiologyQvalueServic
 // GetQvalues get all values we have in database
 func (b *biologyService) GetQvalues(w http.ResponseWriter, r *http.Request) {
 
-	var results []models.QValue
+	var results []interface{}
 
 	rows, err := b.db.Query(`
 		SELECT [StationCode]
@@ -67,7 +67,7 @@ func (b *biologyService) GetQvalues(w http.ResponseWriter, r *http.Request) {
 
 // GetQvalueByMonitoringStation get qvalues for a specified monitoring station
 func (b *biologyService) GetQvalueByMonitoringStation(w http.ResponseWriter, r *http.Request) {
-	var results []models.QValue
+	var results []interface{}
 
 	code := mux.Vars(r)["stationcode"]
 

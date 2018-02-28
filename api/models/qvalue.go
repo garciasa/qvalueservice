@@ -1,4 +1,4 @@
-package models
+package models 
 
 // QValue represent quality of water measured in a Station
 type QValue struct {
@@ -11,5 +11,5 @@ type QValue struct {
 type Response struct {
 	Success bool     `json:"success"`
 	Total   int      `json:"total"`
-	Data    []QValue `json:"data"`
+	Data    []interface{} `json:"data"`
 }
